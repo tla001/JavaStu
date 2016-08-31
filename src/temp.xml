@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<contactList> 
+  <contact id="003"> 
+    <name>lisi</name>  
+    <age>20</age>  
+    <phone>134222225555</phone>  
+    <email>lisi@qq.com</email>  
+    <qq>432222222</qq> 
+  </contact> 
+</contactList>
