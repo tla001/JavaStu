@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE note SYSTEM "note.dtd">
+<note>
+  <to id="a1"></to>
+  <to id="a2"></to>
+  <to id="a3"></to>
+  <heading>Reminder</heading>
+  <heading>Reminder</heading>
+  <heading>Reminder</heading>
+  <body>Don't forget me this weekend</body>
+  <body>Don't forget me this weekend</body>
+  <body>Don't forget me this weekend</body>
+</note>

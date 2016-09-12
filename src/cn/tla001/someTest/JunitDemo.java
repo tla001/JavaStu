@@ -1,4 +1,4 @@
-package com.tla001.base;
+package cn.tla001.someTest;
 
 import org.junit.Test;
 
