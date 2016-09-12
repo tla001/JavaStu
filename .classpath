@@ -6,5 +6,10 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/dom4j"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/network"/>
+	<classpathentry kind="lib" path="D:/Program Files/Java/junit4.4/junit-4.4.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/Java/commons-beanutils-1.9.2/commons-beanutils-1.9.2.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/Java/commons-beanutils-1.9.2/commons-logging.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/Java/apache-tomcat-6.0.39/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/Java/dom4j-1.6.1/dom4j-1.6.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
