@@ -1,0 +1,141 @@
+/*******************************************************************************
+* Function Name  : scan_key
+* Description    : 完成键盘扫描获取按键信息
+* Input          : None
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void scan_key()       //新键盘扫描 
+{  
+  uchar j,d1,d2,k,kk;
+  uint shuru;
+  
+  d1=0;
+  d2=0;
+  for(j=0;j<8;j++) //u1
+  { 
+    kclk_0;
+    delay(2);
+    GPIO_WriteBit(JDA_PORT,JDA_PIN,d2>>7);//kda=(bit)(d2&0x80);
+    d2<<=1;
+    kclk_1;
+    delay(2);
+    kclk_0;
+  }
+  for(j=0;j<8;j++) //u2
+  { 
+    kclk_0;
+    delay(2);
+    GPIO_WriteBit(JDA_PORT,JDA_PIN,d1>>7);//kda=(bit)(d1&0x80);
+    d1<<=1;
+    kclk_1;
+    delay(2);
+    kclk_0;
+  }
+  
+  kclk_0;
+  while(1)
+  { 
+    if((key1==1)&&(key2==1)) 
+    { 
+      for(k=0;k<100;k++) ;
+      if((key1==1)&&(key2==1)) 
+        break; //按键抬起返回
+    }
+    else 
+    { 
+      shuru=0x7fff;
+      for(kk=0;kk<16;kk++)
+      { 
+        d1=(uchar)(shuru);
+        d2=(uchar)(shuru>>8);
+        for(j=0;j<8;j++) //送高字节给u1
+        { 
+          kclk_0;
+          delay(2);
+          GPIO_WriteBit(JDA_PORT,JDA_PIN,d2>>7);//kda=(bit)(d2&0x80);
+          d2<<=1;
+          kclk_1;
+          delay(2);
+          kclk_0;
+        }
+        for(j=0;j<8;j++) //送低字节给u2
+        { 
+          kclk_0;
+          delay(2);
+          GPIO_WriteBit(JDA_PORT,JDA_PIN,d1>>7);//kda=(bit)(d1&0x80);
+          d1<<=1;
+          kclk_1;
+          delay(2);
+          kclk_0;
+        }
+        kclk_0;
+        if(key1==0) 
+        { 
+          for(k=0;k<100;k++) ;
+          if(key1==0) 
+          { 
+            switch(shuru)
+            { 
+            case 0x7fff: key_num=0x32; break;
+            case 0xbfff: key_num=0x39; break;
+            case 0xdfff: key_num=0x33; break;
+            case 0xefff: key_num=0x38; break;
+            case 0xf7ff: key_num=0x35; break;
+            case 0xfbff: key_num=7;break; 
+            case 0xfdff: key_num=0x36; break;
+            case 0xfeff: key_num=0x30;break;
+            default:break;
+            }
+            switch(shuru)
+            { 
+            case 0xff7f: key_num=3; break;
+            case 0xffbf: key_num=4; break;
+            case 0xffdf: key_num=2; break;
+            case 0xffef: key_num=1; break;
+            case 0xfff7: key_num=5;break;
+            case 0xfffb: key_num=13;break;    //20160512_音量
+            case 0xfffd: key_num=12;break;    //20160512_音量
+            default:break;
+            }
+            while(1)
+            {     
+              if((key_num!=0)&&(key1==0)) ;
+              else break;
+            }
+          }
+        }//end of if(key1==0)
+        else if(key2==0) 
+        { 
+          for(k=0;k<100;k++) ;
+          if(key2==0) 
+            switch(shuru)
+            { 
+            case 0x7fff: key_num=0x31; break;
+            case 0xbfff: key_num=6;break;
+            case 0xdfff: key_num=0x34; break;
+            case 0xefff: key_num=0x37; break;
+            case 0xf7ff: key_num=11;break;
+            case 0xfbff: key_num=8;break; 
+            case 0xfdff: key_num=10;break;
+            case 0xfeff: key_num=9;break;  
+            default:break;
+            }
+          while(1)
+          { 
+            if((key_num!=0)&&(key2==0)) ;
+            else break;
+          }  
+        }//end of if(key2==0)
+        else 
+          shuru=(shuru>>1)|0x8000;
+      }//end of for(kk<16)
+      
+    }//end of else shuru=0x7fff
+  }//end of while(1)
+  if((shoufa_flag==1)&&(key_num!=7)&&(key_num!=1)&&((key_num!=4)))  //按下麦克时只有ENTER、F1,F4有效
+  {
+    key_num=0;
+  }
+  
+}

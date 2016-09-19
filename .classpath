@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="D:/Program Files/Java/commons-beanutils-1.9.2/commons-logging.jar"/>
 	<classpathentry kind="lib" path="D:/Program Files/Java/apache-tomcat-6.0.39/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="D:/Program Files/Java/dom4j-1.6.1/dom4j-1.6.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mysql"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
