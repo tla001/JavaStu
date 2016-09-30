@@ -8,9 +8,12 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/network"/>
 	<classpathentry kind="lib" path="D:/Program Files/Java/junit4.4/junit-4.4.jar"/>
 	<classpathentry kind="lib" path="D:/Program Files/Java/commons-beanutils-1.9.2/commons-beanutils-1.9.2.jar"/>
-	<classpathentry kind="lib" path="D:/Program Files/Java/commons-beanutils-1.9.2/commons-logging.jar"/>
 	<classpathentry kind="lib" path="D:/Program Files/Java/apache-tomcat-6.0.39/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="D:/Program Files/Java/dom4j-1.6.1/dom4j-1.6.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mysql"/>
+	<classpathentry kind="lib" path="D:/Program Files/Java/commons-logging-1.1.3/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/Java/commons-collections-3.2/commons-collections-3.2.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/Java/commons-dbutils-1.6/commons-dbutils-1.6.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/json"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
