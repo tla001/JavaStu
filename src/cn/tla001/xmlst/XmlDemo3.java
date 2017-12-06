@@ -10,17 +10,17 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 public class XmlDemo3 {
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) throws Exception {
 		List<Contact> list = new ArrayList<Contact>();
-		
-		//读取xml，封装对象
+
+		// 读取xml，封装对象
 		SAXReader reader = new SAXReader();
-		Document doc = reader.read(new File("./src/contact.xml"));
-		//读取contact标签
+		Document doc = reader.read(new File("./resources/contact.xml"));
+		// 读取contact标签
 		Iterator<Element> it = doc.getRootElement().elementIterator("contact");
-		while(it.hasNext()){
+		while (it.hasNext()) {
 			Element elem = it.next();
-			//创建Contact
+			// 创建Contact
 			Contact contact = new Contact();
 			contact.setId(elem.attributeValue("id"));
 			contact.setName(elem.elementText("name"));
@@ -30,7 +30,7 @@ public class XmlDemo3 {
 			contact.setQq(elem.elementText("qq"));
 			list.add(contact);
 		}
-		
+
 		for (Contact contact : list) {
 			System.out.println(contact);
 		}

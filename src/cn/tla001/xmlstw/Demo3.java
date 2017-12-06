@@ -31,7 +31,7 @@ public class Demo3 {
 		contactElem.addAttribute("id", "001");
 		contactElem.addAttribute("name", "tao");
 		// 三、写进文档
-		FileOutputStream out = new FileOutputStream("./src/temp.xml");
+		FileOutputStream out = new FileOutputStream("./resources/temp.xml");
 		// 指定写出格式
 		// OutputFormat format=OutputFormat.createCompactFormat();//紧凑
 		OutputFormat format = OutputFormat.createPrettyPrint();// 漂亮
@@ -47,7 +47,8 @@ public class Demo3 {
 	@Test
 	public void test2() throws Exception {
 		// 一、读取文档
-		Document doc = new SAXReader().read(new File("./src/contact.xml"));
+		Document doc = new SAXReader()
+				.read(new File("./resources/contact.xml"));
 		// 二、修改 属性值，文本
 		// 得到标签
 		Element contactElem = doc.getRootElement().element("contact");
@@ -60,7 +61,7 @@ public class Demo3 {
 		nameElem.setText("abd");
 
 		// 三、写进文档
-		FileOutputStream out = new FileOutputStream("./src/temp.xml");
+		FileOutputStream out = new FileOutputStream("./resources/temp.xml");
 		// 指定写出格式
 		// OutputFormat format=OutputFormat.createCompactFormat();//紧凑
 		OutputFormat format = OutputFormat.createPrettyPrint();// 漂亮
@@ -76,7 +77,8 @@ public class Demo3 {
 	@Test
 	public void test3() throws Exception {
 		// 一、读取文档
-		Document doc = new SAXReader().read(new File("./src/contact.xml"));
+		Document doc = new SAXReader()
+				.read(new File("./resources/contact.xml"));
 		// 二、删除标签
 		// 得到标签
 		Element contactElem = doc.getRootElement().element("contact");
@@ -90,7 +92,7 @@ public class Demo3 {
 		attr.detach();
 
 		// 三、写进文档
-		FileOutputStream out = new FileOutputStream("./src/temp.xml");
+		FileOutputStream out = new FileOutputStream("./resources/temp.xml");
 		// 指定写出格式
 		// OutputFormat format=OutputFormat.createCompactFormat();//紧凑
 		OutputFormat format = OutputFormat.createPrettyPrint();// 漂亮

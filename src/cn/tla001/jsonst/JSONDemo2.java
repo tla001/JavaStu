@@ -42,15 +42,16 @@ public class JSONDemo2 {
 		System.out.println(js.toString());
 
 		PrintWriter out = new PrintWriter(new FileOutputStream(
-				"./resources/json1.txt"));
-		out.println(js.toString());
+				"./resources/json1"));
+		out.write(js.toString());
+		out.close();
 	}
 
 	@Test
 	// JSONTokener是用来读取JSON格式的文件
 	public void test3() throws JSONException, FileNotFoundException {
 		JSONObject obj = new JSONObject(new JSONTokener(new FileReader(
-				new File("./resources/json1.txt"))));
+				new File("./resources/json1"))));
 		System.out.println(obj.getJSONArray("book").getString(1)); // 可以读取book2
 	}
 }

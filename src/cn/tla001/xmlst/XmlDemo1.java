@@ -44,7 +44,7 @@ public class XmlDemo1 {
 		Document doc = reader.read(new File("./resources/contact.xml"));
 		// 得到根标签
 		Element rootElem = doc.getRootElement();
-		getChildNodes(rootElem);
+		// getChildNodes(rootElem);
 
 		// 获取文本（先获取标签，再获取标签上的文本）
 		Element nameELem = doc.getRootElement().element("contact")
